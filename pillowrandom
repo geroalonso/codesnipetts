@@ -1,0 +1,16 @@
+pillow
+from PIL import Image
+image1 = Image.open('nameofimage.format or pathtoimage')
+image1.show() will display the image
+image.save() will save another version of your image and you can change the format
+
+
+random
+import random
+value = random.uniform(1, 10) a random number between 1 and 10. will produce floats
+value = random.randint(1,10) a random whole number between 1 and 10
+value = random.choice(list) it grabs a random item from the list
+value = random.choices(list, weights = [] , k = numero) it grabs random item from the list k times. pondera the amount of each with weights lists. 
+ 
+
+

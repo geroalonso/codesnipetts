@@ -1,0 +1,86 @@
+REGULAR EXPRESSIONS
+
+GENERAL SETUP
+import re
+raw string: a string that starts with an r and tells python not handle backlashes in any special way (r)
+pattern = re.compile(r'abc') #inside parenthesis an expression to define the pattern im searching. 
+matches= pattern.finditer(texttosearch) #inside parenthesis the string in which im searching for pattern. Returns all the matches and it is iterable.
+
+
+META CHARACTERS (need to be escaped)\ prevents meta characters to be interpreted as compilations. they go before the metachar candidate.
+
+. $ ^ * + ? { }  [ ]  \ | ( )
+
+The following will find:
+. any charcter except a new line
+\d digits (0-9)
+\D Not digits (0-9)
+\w word character (0-9, a-z, A-Z, _ )
+\W not a word character
+\s Whitespaces (space, tab, newline)
+\S not whitespaces
+
+The following are anchors (dont find any characters but are invisible positions before or after characters):
+\b Word Boundary (depends on the positions before or after. Beginning of string a blank spaces are wb)
+\B nor a word boundary
+^ Beggining of a string (goes befor abc)
+$ Ending of a string (goes after abc)
+[ ] Matches characters in brackets. Inside characters we want to math in an or fashion. [.-] dash or dot. if i put [a-cA-C] a through c either min or mayus.  if i put [^a-cA-C] its everything that is not the previous.
+[^ ] Matches characters not in brackets 
+| Or 
+
+The following are quantifiers: They act as multiplicators of the previous.
+* 0 or more
++ 1 or more
+? 0 or one
+{3} exact number
+{3,4} range of numbers. 3 min , 4 max
+a | b matches a or b
+
+
+() specifies a group. you can access a group by a method. pattern.group(index). 0 is all the pattern, 1 is the first , ...By placing part of a regular expression inside round brackets or parentheses, you can group that part of the regular expression together. This allows you to apply a quantifier to the entire group or to restrict alternation to part of the regex.
+
+pattern.search(text_to_search) is an useful method that searches for matches
+
+
+
+COREY SCHAFER SNIPPETS
+.       - Any Character Except New Line
+\d      - Digit (0-9)
+\D      - Not a Digit (0-9)
+\w      - Word Character (a-z, A-Z, 0-9, _)
+\W      - Not a Word Character
+\s      - Whitespace (space, tab, newline)
+\S      - Not Whitespace (space, tab, newline)
+
+\b      - Word Boundary
+\B      - Not a Word Boundary
+^       - Beginning of a String
+$       - End of a String
+
+[]      - Matches Characters in brackets
+[^ ]    - Matches Characters NOT in brackets
+|       - Either Or
+( )     - Group
+
+Quantifiers:
+*       - 0 or More
++       - 1 or More
+?       - 0 or One
+{3}     - Exact Number
+{3,4}   - Range of Numbers (Minimum, Maximum)
+
+
+#### Sample Regexs ####
+
+[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+
+
+
+
+
+
+
+
+
+
+

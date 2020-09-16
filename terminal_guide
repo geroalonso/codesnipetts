@@ -1,0 +1,29 @@
+list comp
+[i for i,x in enumerate([1,2,3,2]) if x==2]
+
+
+pipenv --three
+pipenv install nombrelibreria
+run python3 nombredeearchivo.py
+pip install -r requirements.txt
+
+
+#to create data base and manipulate
+pipenv shell 
+from app import db
+db.create_all()
+from app import BlogPost
+BlogPost.query.all()
+db.session.add(BlogPost(title = 'asda', author = 'asd', email= 'asd'))
+BlogPost.query.all()[0].email
+BlogPost.query.filter_by(title = 'First blog post').all()
+BlogPost.query.get()
+db.session.delete(BlogPost.query.get(2))
+db.session.commit()
+
+#to manioulatee data
+pipenv shell
+python3
+from app import db
+from app import Rating
+Rating.query.all()

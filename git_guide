@@ -1,0 +1,37 @@
+ggit init (dentro del directory que quiero trackear)
+rm - rf .git (deletes the repository)
+git status (checks if there are chages that have not been added to the staging area)
+touch .gitignore --> text file which we want git to ignore ej, *.pyc
+git add -A (add all the files to staging area)
+git add nameoffile (add name of file to staging area)
+git reset nameoffile (removes file from staging area)
+git reset (removes all the files from staging area)
+git commit -m "Message to be saved to commit"
+git log (we can see the committs we made w/ has #)
+git clone url wheretoclone
+git remote -v (lists information to the repository)
+git branch -a (all of the branches in our repository not only locally)
+git diff (show changes to code)
+git pull nameofrepositoryorigin master (it pulls changes made by others while you were coding)
+git push nameofrepositoryorigin master (it pushed changes made by you online)
+git branch nameofbranch (it creates a local branch instead of working on master)
+git branch -a (shows you all the branches, the one you are present in *)
+git checkout nameofbranch (it is a cd to work on the desired brand)
+
+git checkout -b nameofbranch
+
+
+git merge nameofbranch (it merges the branch to master)
+git branch --merged (to check if merge has occured)
+git branch -d nameofbranch (deletes branch locally)
+git push nameofrepository --delete nameofbranch (deletes branch in the repository)
+git checkout nameoffyle.py (it resets any change made on the file)
+git commit --amend -m "New message" (to repair mistakes once commited)
+git add nameoffile then git commit --amend and once the ui appears :wq to save and close(this is to add a file to a previous commit)
+git cherry-pick hashfrommistakecommit (if you commited in the wrong branch accidentally this is a way to copy it, you should afterwards remove it from the other branch with a reset)
+git reset --soft (will remove the last commit from the current branch, but the file changes will stay in your working tree)
+git clean -df 
+
+
+
+

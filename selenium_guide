@@ -1,0 +1,49 @@
+START IMPORTING MODULES:
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
+
+
+SETTING THE SEARCH ENGINE
+driver = webdriver.Chrome(ChromeDriverManager().install())
+
+OPEN URL:
+driver.get(url)
+
+WAITS:
+driver.implicitly_wait(5)
+
+RUN ON BACKROUND:
+Options().add_argument("--headless")
+
+DIFERENT WAYS TO FIND ELEMENT:
+find_element_by_id (Preference level 1, as it is unique)
+find_element_by_name (Preference level 1, as it is unique)
+find_element_by_xpath (Preference level 2, custom xpath due to adaptability)
+find_element_by_tag_name (Multiple results expected)
+find_element_by_class_name (Case by case basis)
+
+
+TO GET A LIST OF ELEMENTS: the same as below but find_elements_by
+CUSTOM XPATHS:
+//htmltag[text()= 'whattext']
+//htmltag[contains(text(), 'whattext')]
+//htmltag[contains(@id, 'whatcontains')]
+//htmltag[starts-with(@id, 'whatstarts')]
+//htmltag[ends-with(@id, 'whatends')]
+//htmltag[@type='type' and @class='class']
+
+SIBLING AND PARENT CUSTOM XPATHS:
+//a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']
+
+
+DROPDOWN MENU:
+from selenium.webdriver.support.ui import Select
+
+Var = Select(driver.find_element_by_id('asd'))
+Var.select_by_visible_text('asdasda')
+
+//tr[@class = "data-grid__row data-grid__row--active"]/td[text()= '' and position() =4]
+

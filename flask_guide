@@ -1,0 +1,83 @@
+FLASK:
+#SETTING UP VIRTUAL ENV AND DOWNLOADING FLASK
+pipenv --three
+pipenv install flask
+
+#CREATING BASIC FLASK APPLICATION:
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+
+#RUN
+cd folderwherefile.pyislocated
+export FLASK_APP = file.py #here we set the flask app variable to the py file
+flask run
+Now web server should be running
+localhost:5000 should take us to the site
+
+#DEBUG MODE
+In order for changes to take place in normal run mode we need to stop and restart the webserver, while developing we have another way to do it without the previously mentioned hustle that is the following.
+
+export FLASK_DEBUG = 1 
+flask run
+
+#ANOTHER ALTERNATIVE
+if your don't want to work with those environment variables you can opt for entering in python code at the end:
+if __name__ = '__main__':
+	app.run(debug = True)
+pipenv run python3 filename.py
+
+#ADD ANOTHER SITE
+@app.route("/nameofthersite")
+
+#MULTIPLE ROUTES HANDLED BY THE SAME FUNCTION
+@app.route("/nameofthersite1")
+@app.route("/nameofthersite2")
+
+#HTML TEMPLATE
+We can write html code as the return of the function inside the app routes but as it gets larger it crowds our code so flask lets us write an html on another file and use it inside de .py file.
+e.g we create a folder called templates. Inside the templates folder we create various .html files. In order to add it into our .py file we add in the import section 
+, 
+from flask import Flask, render_template
+Now inside route 
+@app.route("/nameofsite")
+def home():
+	return render_template('file.html')
+
+#PASS VARIABLE INTO TEMPLATE
+def home():
+	return render_template('file.html', variable = variable)
+
+#WRITING CODE INSIDE HTML TEMPLATE
+FOR LOOP
+{% for post in posts%}
+	<h1>{{post.title}}</h1>
+	<h1> {{post.author}}<h1/>
+{% endfor %}
+
+IF SOMETHING EXISTS:
+{%if title%}
+	{{title}}
+{%else%}
+{%end if%}
+
+#TEMPLATE INHERITANCE:
+Write what every one has in common In layout
+{%block content%} {{%endblock content%}}
+In each specific site to inherit we need to 
+{% extends "layout.html" %}
+
+
+#CSS: 
+from flask import Flask, url_for
+below bootstrap styles. Url for looks for the location of a file.static is name of folder. File name goes inside filename = ... .
+<link = rel 'stylesheet' type = 'text/css' href = "{{url_for ('static', filename = 'main.css' }}" >
+
+
+#USER INPUTS AND FORMS
+install flask-wtf
+create a new file. forms.py
+from flask_wtf import FlaskForm
+from wtforms import StringField
+
